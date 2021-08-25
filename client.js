@@ -11,16 +11,37 @@ const connect = function () {
   conn.setEncoding("utf8");
 
   conn.on("connect", () => {
-    console.log('Successfully connected to game server')// code that does something when the connection is first established
+    console.log('Successfully connected to game server'); // code that does something when the connection is first established
+    // conn.write("Move: up");
+    conn.write('Name: MAE');
+
+    // setInterval(() => {
+    //   conn.write("Move: up")
+    // }, 50);
+
+    // setTimeout(() => {
+    //   conn.write("Move: left");
+    // }, 2000);
+
+    // setTimeout(() => {
+    //   conn.write("Move: down");
+    // }, 2050);
+
+    // setTimeout(() => {
+    //   conn.write("Move: left");
+    // }, 2100);
+    
   });
 
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
 
-  conn.on('connect', () => {
-    conn.write('Name: MAE');
-  });
+  // conn.on("connect", () => {
+    // console.log('Successfully connected to game server'); // code that does something when the connection is first established
+    // conn.write('Name: MAE');
+    // conn.write("Move: up");
+  // });
 
   return conn;
 };
