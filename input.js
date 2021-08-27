@@ -28,6 +28,9 @@ const setupInput = function (conn) {
       connection.write("Move: right")
     }
 
+    if (key === "l") {
+      connection.write("Say: Get out the Way!")
+    }
 
   };
 
