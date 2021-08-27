@@ -1,24 +1,9 @@
 const net = require("net");
 const connect = require('./client')
+const setupInput = require("./input")
 
-
-
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-  const handleUserInput = function () {
-    if (key === 'ctrl + c') {
-      process.exit();
-    }
-    setupInput();
-  };
-  stdin.on("data", handleUserInput);
-  return stdin;
-};
 
 console.log("Connecting ...");
+const netSocket = connect();
 
-
-connect();
+setupInput(netSocket);
